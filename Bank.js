@@ -52,7 +52,7 @@ class Account {
         } else {
             this.balance -= amount;            
             this.transactionHistory.push({transactionType: 'Transfer', amount: amount, to: recipientAccount.name});
-            recipientAccount.deposit(amount);
+            recipientAccount.balance =+ amount;
             recipientAccount.transactionHistory.push({transactionType: 'Received', amount: amount, from: this.name});
         }
     }
