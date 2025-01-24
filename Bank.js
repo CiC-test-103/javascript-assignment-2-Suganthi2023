@@ -53,7 +53,7 @@ class Account {
             this.withdraw(amount);
             recipientAccount.deposit(amount);
             this.transactionHistory.push({transactionType: 'Transfer', amount: amount, to: recipientAccount.name});
-            this.transactionHistory.push({transactionType: 'Received', amount: amount, from: this.name});
+            recipientAccount.transactionHistory.push({transactionType: 'Received', amount: amount, from: this.name});
         }
     }
     
