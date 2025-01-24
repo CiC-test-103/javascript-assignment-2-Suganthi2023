@@ -50,7 +50,7 @@ class Account {
         if(amount > this.balance){
             console.log("Insufficient funds...")
         } else {
-            this.withdraw(amount);
+            this.balance -= amount;
             recipientAccount.deposit(amount);
             this.transactionHistory.push({transactionType: 'Transfer', amount: amount, to: recipientAccount.name});
             recipientAccount.transactionHistory.push({transactionType: 'Received', amount: amount, from: this.name});
