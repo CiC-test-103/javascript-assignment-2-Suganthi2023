@@ -8,9 +8,9 @@ class Bank {
     // Add methods here:
     // Example: createAccount(name, initialDeposit)
     createAccount(name,initialDeposit){
-        const account = new Account(name,initialDeposit);
-        this.accounts.push(account);
-        return account;
+        const account = new Account(name,initialDeposit); // Creates a new Account with given name, initial deposit by calling Account Class
+        this.accounts.push(account);                      // Pushes the newly created account to the accounts array in the bank class
+        return account;                                   // returns the newly created account to the caller.
     }
 
 }
@@ -27,18 +27,18 @@ class Account {
     // Example: deposit(amount) 
     // example data to be stored in transactionHistory { transactionType: 'Deposit', amount: 500 }
     deposit(amount){
-        this.balance += amount;
-        this.transactionHistory.push({transactionType: 'Deposit', amount: amount});
+        this.balance += amount; // Increasing the balance by adding the amount to the balance. 
+        this.transactionHistory.push({transactionType: 'Deposit', amount: amount}); //Recording this deposit in the transaction history
     }
 
     // Example: withdraw(amount)
     // example data to be stored in transactionHistory { transactionType: 'Withdrawal', amount: 200 }
     withdraw(amount){
-        if(amount > this.balance){
-            console.log("Insufficient funds...")
+        if(amount > this.balance){      // Checking whether if the specified withdrawal amount is less than the balance.
+            console.log("Insufficient funds...") //If the amount is not less means not enough funds to withdraw
         }else {
-            this.balance -= amount;
-            this.transactionHistory.push({transactionType: 'Withdrawal', amount: amount});
+            this.balance -= amount; // if the amount is less, decreasing the balance by taking the amount from the balance.
+            this.transactionHistory.push({transactionType: 'Withdrawal', amount: amount}); // Recording this withdrawal in the transaction history
         }
     }
 
@@ -46,8 +46,8 @@ class Account {
     // example data to be stored in transactionHistory:
     // for account sending { transactionType: 'Transfer', amount: 300, to: recipientName }
     // for account recieving { transactionType: 'Received', amount: 300, from: senderName }
-    transfer(amount,recipientAccount){
-        if(amount > this.balance){
+    transfer(amount,recipientAccount){  //Transferring money from one account to another account and updating the balance on both accounts and also updating 
+        if(amount > this.balance){              //the transaction history of both accounts accordingly.
             console.log("Insufficient funds...")
         } else {
             this.balance -= amount;            
@@ -59,7 +59,7 @@ class Account {
     
     // Example: checkBalance()
     checkBalance(){
-        return this.balance;
+        return this.balance; //After transferring, checking the balance of the sender account.
     }
 }
 
